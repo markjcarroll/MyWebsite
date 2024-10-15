@@ -1,65 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
+    <!-- Meta information and page description -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Web Developer Portfolio">
+
+    <!-- Page title -->
     <title>Mark Carroll - Web Developer</title>
+    
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
+
 <body>
-    <!-- Header -->
+
+
+    <!-- Top Banner / Header Section -->
     <header>
+
+        <!-- Container to center and structure the content -->
         <div class="container">
+            <!-- Main heading with name introduction -->
             <h1>Hi, I'm Mark Carroll</h1>
-            <p>Passionate Web Developer</p>
-            <br>
+            <!-- Sub-heading with a brief description -->
+            <p>Passionate Web Developer</p><br>
+            <!-- Call-to-action button linking to the portfolio section -->
             <a href="#portfolio" class="cta-button">See My Work</a>
             <br><br>
         </div>
+
     </header>
 
-    <!-- About Section -->
+
+    <!-- About Section providing an introduction -->
     <section id="about">
-        <div class="container">          
+
+        <!-- Container to center and structure the content -->
+        <div class="container">
+            <!-- Section heading -->
             <h2>About Me</h2>
+            <!-- Brief description about your background and skills -->
             <p>I have a BS in Computer Science and a strong passion for building modern, responsive websites. I'm proficient in HTML, CSS, JavaScript, and more!</p>
         </div>
+
     </section>
 
-    <!-- Portfolio Section -->
+
+    <!-- Portfolio Section showcasing your work -->
     <section id="portfolio">
+
+        <!-- Container to center and structure the content -->
         <div class="container">
+            <!-- Section heading -->
             <h2>My Portfolio</h2>
+
+            <!-- Grid layout to display project examples -->
             <div class="project-grid">
-                <!-- Example Project -->
+
+                <!-- Example Project block -->
                 <div class="project">
-                    <img src="images/Project1.jpg" alt="Project 1">
+                    <!-- Placeholder image for the project -->
+                    <img src="images/Headshot.jpg" alt="Project 1">
+                    <!-- Short description of the project -->
                     <p>Project 1 Description</p>
                 </div>
-                <!-- Add more projects here -->
+
+                <!-- Additional project blocks can be added here -->
+
             </div>
+
         </div>
+
     </section>
 
-    <!-- Contact Section -->
+
+    <!-- Contact Section for user inquiries -->
     <section id="contact">
+
+        
+
+        <!-- Container to structure the form -->
         <div class="container">
-            <h2>
-                <img src="images/Headshot.jpg" alt="Carroll, Mark - Headshot" style="width: 225px; height: 220px;">
-                <br>
-                Contact Me
-            </h2>
-            <p><a href="mailto:markjcarroll990@outlook.com" target="_blank">markjcarroll990@outlook.com</a></p>
-            <br>
-            <a href="https://www.linkedin.com/in/mark-carroll-9446211b6" target="_blank">LinkedIn</a>
+            <!-- Section heading -->
+            <h2>Contact Me</h2>
+
+            <!-- LinkedIn link -->
+            <a href="https://www.linkedin.com/in/mark-carroll-9446211b6" target="_blank" >
+            <!-- Headshot image styled with rounded corners -->
+            <img src="images/Headshot.jpg" alt="LinkedIn"  style="width: 275px; height: 270px; border-radius: 15px;">
+            </a><br><br>
+
+            <!-- Contact form for user submissions -->
+            <form id="contact-form">
+                <!-- Name input field -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <!-- Email input field -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- Message textarea -->
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <!-- Submit button to send the form -->
+                <button type="submit">Send Message</button>
+            </form>
+            
+            <!-- Placeholder for form response messages -->
+            <p id="form-response" style="display:none;"></p>
+
         </div>
+
     </section>
 
+    <!-- Footer Section with copyright information -->
     <footer>
         <p>&copy; 2024 Mark Carroll. All rights reserved.</p>
     </footer>
 
+    <!-- Link to the external JavaScript file for handling form functionality -->
     <script src="scripts.js"></script>
 </body>
 </html>
