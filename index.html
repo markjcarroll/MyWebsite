@@ -13,6 +13,10 @@
     
     <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- hCaptcha Script -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 </head>
 
 
@@ -108,6 +112,9 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
+                <!-- hCaptcha widget -->
+                <div class="h-captcha" data-sitekey="30147b1e-8a08-42fc-a558-3a1053c8b2c2"></div>
+                
                 <!-- Submit button to send the form -->
                 <button type="submit">Send Message</button>
             </form>
