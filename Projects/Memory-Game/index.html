@@ -6,15 +6,28 @@
     <title>Memory Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+
 <body>
     <div id="game-container">
         <h1>Memory Game</h1>
         <h2>Click on the cards to find matching pairs. Try to complete the game in as few moves as possible!</h2>
+        
         <div class="game-board" id="game-board">
             <!-- Cards will be dynamically created here -->
         </div>
+
+        <div id="game-stats">
+            <p id="move-counter">Moves: 0</p>
+            <p id="best-score">Best Score: N/A</p>
+            <p id="last-games">Last 4 games: N/A</p>
+        </div>
+
         <button id="restart" class="restart-btn">Restart Game</button>
     </div>
+
+
+    
     
 
     <script src="scripts.js"></script>

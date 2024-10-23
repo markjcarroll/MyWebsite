@@ -77,6 +77,13 @@ header .cta-button:hover {
 section {
     padding: 50px 0; /* Space inside the section */
     text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+section.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* H2 styling: Adjust font size and margin for subheadings */

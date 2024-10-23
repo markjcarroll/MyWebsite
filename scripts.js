@@ -69,10 +69,12 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
         if (entry.isIntersecting) {
             // When a section is in view (threshold is met), add the 'visible' class to it
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Stop observing the section once it's visible
+        } else {
+            // When a section goes out of view, remove the 'visible' class
+            entry.target.classList.remove('visible');
         }
     });
-}, { threshold: 0.30 }); // Set the threshold to a % (when  that % of the section is visible)
+}, { threshold: 0.35 }); // Set the threshold to a % (when  that % of the section is visible)
 
 // Observe each section to trigger animations when they scroll into view
 sections.forEach(section => {

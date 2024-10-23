@@ -43,14 +43,6 @@ h2 {
     box-sizing: border-box;  /* Prevent content from overflowing */
 }
 
-.game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 150px);
-    grid-gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
-}
-
 .card {
     width: 150px;
     height: 150px;
@@ -120,3 +112,44 @@ h2 {
 .restart-btn:hover {
     background-color: #92423b; /* Darker shade on hover */
 }
+
+#game-container {
+    text-align: center;
+    padding: 35px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+    width: 100%;
+    margin: 15px auto;
+    position: relative; /* Add relative positioning for better control */
+}
+
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px;
+}
+
+
+#game-stats {
+    background-color: #af5b4cd4;
+    padding: 15px;
+    border-radius: 10px;
+    color: #ecf0f1;
+    text-align: center;
+    width: 190px;  /* Ensure it's the same width as the game container */
+    margin-top: 10px;  /* Small space between game board and stats */
+    margin-bottom: 10px;  /* Small space between stats and restart button */
+    margin: 10px auto; /* Center the stats container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#move-counter, #best-score, #last-games {
+    margin: 5px 0;
+    font-size: 1.2em;
+}
+
