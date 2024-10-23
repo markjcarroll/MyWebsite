@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;  /* Ensure the page takes up the full height */
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+#game-container {
+    text-align: center;
+    padding: 35px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 650px;  /* Set a max width for the game container */
+    width: 100%;
+    margin: 15px auto;  /* Add some margin to center the container */
+}
+
+h1 {
+    font-size: 2.0em;
+    margin: 0;
+    padding: 15px;
+    color: #ecf0f1; /* Light font color */
+    background-color: #af5b4cd4; /* Background color */
+    border-radius: 15px 15px 0 0; /* Rounded top border */
+    /*border: 4px solid #af5b4cd4; /* Border around header */
+    box-sizing: border-box;  /* Ensure padding doesn't add extra size */
+    overflow: hidden;  /* Prevent any cutting off */
+}
+
+h2 {
+    font-size: 1.1em;
+    padding: 10px;
+    margin: 0;
+    background-color: #af5b4ca8; /* Same primary color for background */
+    border-radius:  0 0 15px 15px; /* Rounded top border */
+    color: #ecf0f1; /* Light font color for description */
+    /*border: 4px solid #af5b4cd4; /* Matching border */
+    border-top: none; /* No border on the top */
+    box-sizing: border-box;  /* Prevent content from overflowing */
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: #af5b4ca8;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transform: rotateY(0);
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    background-color: #92423b; /* Darker shade on hover */
+    transition: transform 0.6s ease
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front-face, .back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border-radius: 10px;
+}
+
+.front-face {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    transform: rotateY(180deg);  /* The front face will be hidden initially */
+    visibility: hidden;  /* Hide the front face by default */
+}
+
+.back-face {
+    background-color: #af5b4c87;
+}
+
+/* Show the front face when the card is flipped */
+.card.flipped .front-face {
+    visibility: visible;  /* Show the front face when flipped */
+}
+
+.card.flipped .back-face {
+    visibility: hidden;  /* Hide the back face when flipped */
+}
+
+.restart-btn {
+    background-color: #af5b4cd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.restart-btn:hover {
+    background-color: #92423b; /* Darker shade on hover */
+}

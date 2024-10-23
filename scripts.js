@@ -72,7 +72,7 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
             observer.unobserve(entry.target); // Stop observing the section once it's visible
         }
     });
-}, { threshold: 0.15 }); // Set the threshold to 5% (when 5% of the section is visible)
+}, { threshold: 0.30 }); // Set the threshold to a % (when  that % of the section is visible)
 
 // Observe each section to trigger animations when they scroll into view
 sections.forEach(section => {

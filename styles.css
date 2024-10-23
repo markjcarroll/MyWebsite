@@ -19,6 +19,7 @@ body {
 
 /* Header styling: Set background color, text color, and padding */
 header {
+    border-radius: 10px 10px 10px 10px; /* Rounded top border */
     background-color: #af5b4cd4; /* Semi-transparent purple */
     color: white;
     padding: 15px 0;
@@ -93,7 +94,7 @@ h2 {
 
 /* Project image styling: Make images responsive and give them rounded corners */
 .project img {
-    width: 100%; /* Make images scale to fit their container */
+    width: 75%; /* Make images scale to fit their container */
     border-radius: 10px; /* Rounded corners for images */
 }
 
