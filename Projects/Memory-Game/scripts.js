@@ -61,8 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkGameEnd() {
         const allCardsMatched = document.querySelectorAll('.card.matched').length === numberOfPairs * 2;
         if (allCardsMatched) {
-            alert(`Congratulations! You completed the game in ${moveCount} moves!`);
-            endGame();
+            setTimeout(() => {
+                alert(`Congratulations! You completed the game in ${moveCount} moves!`);
+                endGame(); // Call the end game function after the delay
+            }, 400); // Adjust the delay as needed based on your flip animation duration
+
         }
     }
 
