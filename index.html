@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <!-- Meta information and page description -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Web Developer Portfolio">
-
     <!-- Page title -->
     <title>Mark Carroll - Web Developer</title>
     
     <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="styles.css">
 
-    <!-- hCaptcha Script -->
+
+    <!-- hCaptcha Script for the contact form -->
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
 </head>
 
 
 <body>
-
 
     <!-- Top Banner / Header Section -->
     <header>
@@ -65,15 +63,14 @@
             <!-- Grid layout to display project examples -->
             <div class="project-grid">
 
-                <!-- Example Project block -->
+                <!-- Memory Game Project block -->
                 <div class="project">
                     <h3>Memory Game</h3><br>
-                    <!-- Placeholder image for the project -->
-                    <a href="https://markjcarroll.github.io/MyWebsite/Projects/Memory-Game/index.html
-                    " target="_blank">
-                        <!-- Headshot image styled with rounded corners -->
-                        <img src="Projects/$Thumbnails/Memory-Game.png" alt="Memory Game"  style="border-radius: 15px;">
-                        </a>
+                    <!-- Link to the live project (Memory Game) at https://markjcarroll.github.io/MyWebsite/-->
+                    <a href="Projects/Memory-Game/index.html" target="_blank">
+                        <!-- Image representing the project (Memory Game) -->
+                        <img src="Projects/$Thumbnails/Memory-Game.png" alt="Memory Game" style="border-radius: 15px;">
+                    </a>
                     <!-- Short description of the project -->
                     <br><br><p>Click on the cards to find matching pairs.</p>
                 </div>
@@ -90,17 +87,15 @@
     <!-- Contact Section for user inquiries -->
     <section id="contact">
 
-        
-
         <!-- Container to structure the form -->
         <div class="container">
             <!-- Section heading -->
             <h2>Contact Me</h2>
 
-            <!-- LinkedIn link -->
-            <a href="https://www.linkedin.com/in/mark-carroll-9446211b6" target="_blank" >
-            <!-- Headshot image styled with rounded corners -->
-            <img src="images/Headshot.jpg" alt="LinkedIn"  style="width: 275px; height: 270px; border-radius: 15px;">
+            <!-- LinkedIn link with image -->
+            <a href="https://www.linkedin.com/in/mark-carroll-9446211b6" target="_blank">
+                <!-- LinkedIn profile image with styling -->
+                <img src="images/Headshot.jpg" alt="LinkedIn" style="width: 275px; height: 270px; border-radius: 15px;">
             </a><br><br>
 
             <!-- Contact form for user submissions -->
@@ -119,26 +114,29 @@
 
                 <br><br>
 
-                <!-- hCaptcha widget -->
+                <!-- hCaptcha widget for spam protection -->
                 <div class="h-captcha" data-sitekey="30147b1e-8a08-42fc-a558-3a1053c8b2c2"></div>
                 
                 <!-- Submit button to send the form -->
                 <button type="submit">Send Message</button>
             </form>
             
-            <!-- Placeholder for form response messages -->
+            <!-- Placeholder for form response messages (success or error) -->
             <p id="form-response" style="display:none;"></p>
 
         </div>
 
     </section>
 
+
     <!-- Footer Section with copyright information -->
     <footer>
         <p>&copy; 2024 Mark Carroll. All rights reserved.</p>
     </footer>
 
+    
     <!-- Link to the external JavaScript file for handling form functionality -->
     <script src="scripts.js"></script>
+
 </body>
 </html>

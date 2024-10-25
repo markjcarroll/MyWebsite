@@ -1,3 +1,4 @@
+
 /* Universal reset: Remove default margin and padding, set box-sizing to border-box */
 * {
     margin: 0;
@@ -17,6 +18,8 @@ body {
     margin: 0 auto; /* Center the container */
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
 /* Header styling: Set background color, text color, and padding */
 header {
     border-radius: 10px 10px 10px 10px; /* Rounded top border */
@@ -30,6 +33,28 @@ header {
 header h1 {
     font-size: 3em; /* Large heading */
 }
+
+/* Apply bounce-in animation to the H1 inside the header */
+header h1 {
+    animation: bounceIn 1s ease-in-out; /* 1-second bounce animation */
+}
+
+/* Keyframe animation for bounce-in effect */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5); /* Start small */
+        opacity: 0; /* Start invisible */
+    }
+    60% {
+        transform: scale(1.1); /* Slightly larger bounce */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: scale(1); /* End at normal size */
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* CTA button inside the header: Customize look, padding, border-radius, and transitions */
 header .cta-button {
@@ -53,6 +78,16 @@ header .cta-button:hover {
     color: white; /* Change text color to white */
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* H2 styling: Adjust font size and margin for subheadings */
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px; /* Add space below the heading */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
 /* General CTA button styling: Customize padding, color, and transitions */
 .cta-button {
     display: inline-block;
@@ -73,6 +108,8 @@ header .cta-button:hover {
     color: white;
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
 /* Section styling: Add padding and center align the content */
 section {
     padding: 50px 0; /* Space inside the section */
@@ -81,16 +118,33 @@ section {
     transition: opacity 0.5s ease-in-out;
 }
 
+/* Section visible state: When they appear on screen (visible), set full opacity and reset position */
 section.visible {
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
+    transform: translateY(0);
 }
 
-/* H2 styling: Adjust font size and margin for subheadings */
-h2 {
-    font-size: 2em;
-    margin-bottom: 20px; /* Add space below the heading */
+/* Section animations: Initial hidden state with opacity and translation */
+section {
+    opacity: 0;
+    transform: translateY(20px); /* Move section down */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Linked image hover effect: Scale up slightly */
+a img:hover {
+    transform: scale(1.07); /* Slightly enlarge the logo on hover */
+}
+
+/* Linked image styling: Transition for scaling on hover */
+a img {
+    transition: transform 0.6s ease;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* Project grid: Use CSS grid to display projects in 3 columns with spacing between them */
 .project-grid {
@@ -105,96 +159,6 @@ h2 {
     border-radius: 10px; /* Rounded corners for images */
 }
 
-/* Footer styling: Set background and text color, center align, and add padding */
-footer {
-    background-color: #333; /* Dark background */
-    color: white;
-    text-align: center;
-    padding: 10px; /* Padding inside the footer */
-}
-
-/* Form styling: Set flexbox layout, max width, and center the form */
-form {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    width: 100%;
-    max-width: 600px; /* Limit the width of the form */
-    margin: 0 auto; /* Center the form */
-}
-
-/* Label styling: Add top margin and font size for form labels */
-label {
-    margin-top: 15px;
-    font-size: 1.2em;
-    text-align: left;
-}
-
-/* Input and textarea styling: Padding, margin, and border */
-input, textarea {
-    padding: 10px;
-    margin-top: 5px; /* Space above inputs */
-    font-size: 1em;
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #ccc; /* Light gray border */
-}
-
-/* Button styling: Set padding, font size, background, color, and cursor */
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    background-color: #af5b4cd4; /* Semi-transparent purple */
-    color: white;
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-/* Button transition: Add a transition for background color and scale */
-button {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Button hover effect: Change background, scale up, and text color */
-button:hover {
-    background-color: #af5b4c;
-    transform: scale(1.05); /* Slightly enlarge the button */
-    color: rgba(44, 18, 7, 0.663); /* Change text color */
-}
-
-/* Section animations: Initial hidden state with opacity and translation */
-section {
-    opacity: 0;
-    transform: translateY(20px); /* Move section down */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Section visible state: When visible, set full opacity and reset position */
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Keyframe animation for bounce-in effect */
-@keyframes bounceIn {
-    0% {
-        transform: scale(0.5); /* Start small */
-        opacity: 0; /* Start invisible */
-    }
-    60% {
-        transform: scale(1.1); /* Slightly larger bounce */
-        opacity: 1; /* Fully visible */
-    }
-    100% {
-        transform: scale(1); /* End at normal size */
-    }
-}
-
-/* Apply bounce-in animation to the H1 inside the header */
-header h1 {
-    animation: bounceIn 1s ease-in-out; /* 1-second bounce animation */
-}
-
 /* Keyframe animation for slide-in effect */
 @keyframes slideIn {
     0% {
@@ -207,6 +171,11 @@ header h1 {
     }
 }
 
+/* Hover effect for project: Move the project up slightly */
+.project:hover {
+    transform: translateY(-5px); /* A slight hover effect */
+}
+
 /* Project styling: Animate projects with slide-in effect */
 .project {
     opacity: 0; /* Start invisible */
@@ -214,16 +183,63 @@ header h1 {
     transition: transform 0.3s ease; /* Add transition for hover effect */
 }
 
-/* Hover effect for project: Move the project up slightly */
-.project:hover {
-    transform: translateY(-5px); /* A slight hover effect */
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Form styling: Set flexbox layout, max width, and center the form */
+form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    width: 100%;
+    max-width: 600px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form */
 }
 
-
-a img {
-    transition: transform 0.6s ease;
+/* Form Label styling: Add top margin and font size for form labels */
+label {
+    margin-top: 15px;
+    font-size: 1.2em;
+    text-align: left;
 }
 
-a img:hover {
-    transform: scale(1.07); /* Slightly enlarge the logo on hover */
+/* Form Input and textarea styling: Padding, margin, and border */
+input, textarea {
+    padding: 10px;
+    margin-top: 5px; /* Space above inputs */
+    font-size: 1em;
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light gray border */
+}
+
+/* Form Submit Button styling: Set padding, font size, background, color, and cursor */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #af5b4cd4; /* Semi-transparent purple */
+    color: white;
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Form Submit Button hover effect: Change background, scale up, and text color */
+button:hover {
+    background-color: #af5b4c;
+    transform: scale(1.05); /* Slightly enlarge the button */
+    color: rgba(44, 18, 7, 0.663); /* Change text color */
+}
+
+/* Form Submit Button transition: Add a transition for background color and scale */
+button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Footer styling: Set background and text color, center align, and add padding */
+footer {
+    background-color: #333; /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 10px; /* Padding inside the footer */
 }

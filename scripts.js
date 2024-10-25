@@ -1,23 +1,16 @@
-// Event listener that triggers when the entire DOM content is loaded
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Portfolio loaded successfully!"); // Log a message to the console when the page is fully loaded
-});
-
-
-document.getElementById('contact-form').addEventListener('submit', async function(event) {
+// Function to handle form submission
+async function handleFormSubmit(event) {
     event.preventDefault(); // Prevent default form submission behavior
 
-    // Check if the hCaptcha response exists
-    const hCaptchaResponse = hcaptcha.getResponse();
+    const hCaptchaResponse = hcaptcha.getResponse(); // Check if the hCaptcha response exists
     
     if (hCaptchaResponse.length === 0) {
-        // If hCaptcha has not been completed, prevent the form submission
-        alert("Please complete the CAPTCHA before submitting.");
-        return false;
+        alert("Please complete the CAPTCHA before submitting."); // Alert if CAPTCHA is not completed
+        return false; // Stop form submission
     }
 
     const form = event.target; // Get the form element
-    const formData = new FormData(form); // Collect form data in key-value pairs
+    const formData = new FormData(form); // Collect form data
 
     // Send the form data using fetch (AJAX request)
     try {
@@ -28,56 +21,59 @@ document.getElementById('contact-form').addEventListener('submit', async functio
                 'Accept': 'application/json' // Expect a JSON response from the server
             }
         });
+        
+        const resultMessage = document.getElementById('form-response'); // Element to show messages
 
-        const resultMessage = document.getElementById('form-response'); // Element to show success/failure messages
         if (response.ok) {
-            // If the response is successful (status 200-299)
-            resultMessage.innerText = '\nMessage sent successfully!'; // Show success message
-            resultMessage.style.color = 'green'; // Set the message color to green
+            resultMessage.innerText = '\nMessage sent successfully!'; // Success message
+            resultMessage.style.color = 'green'; // Green color for success
             resultMessage.style.display = 'block'; // Make the message visible
-            form.reset(); // Clear the form fields after successful submission
-            hcaptcha.reset(); // Reset hCaptcha after successful form submission
+            form.reset(); // Clear the form fields
+            hcaptcha.reset(); // Reset hCaptcha
         } else {
-            // If the response is unsuccessful (status 400 or higher)
             const data = await response.json(); // Parse the response JSON
             if (data.errors) {
-                // If there are specific errors, show them as the message
-                resultMessage.innerText = data.errors.map(error => error.message).join(", ");
+                resultMessage.innerText = data.errors.map(error => error.message).join(", "); // Show errors if any
             } else {
-                // Generic error message if no specific errors are provided
-                resultMessage.innerText = '\nThere was a problem sending your message. Please try again.';
+                resultMessage.innerText = '\nThere was a problem sending your message. Please try again.'; // Generic error
             }
-            resultMessage.style.color = 'red'; // Set the message color to red
+            resultMessage.style.color = 'red'; // Red color for error
             resultMessage.style.display = 'block'; // Make the message visible
         }
     } catch (error) {
-        // If the fetch request fails (e.g., network error)
-        const resultMessage = document.getElementById('form-response'); // Element to show error messages
-        resultMessage.innerText = '\nThere was an error sending your message. Please try again.'; // Show error message
-        resultMessage.style.color = 'red'; // Set the message color to red
+        const resultMessage = document.getElementById('form-response'); // Error message element
+        resultMessage.innerText = '\nThere was an error sending your message. Please try again.'; // Show error
+        resultMessage.style.color = 'red'; // Red color for error
         resultMessage.style.display = 'block'; // Make the message visible
     }
-});
+}
 
+// Initialize IntersectionObserver to handle scroll-triggered animations
+function initSectionObserver() {
+    const sections = document.querySelectorAll('section'); // Get all sections
 
-// Get all sections on the page to apply scroll-triggered animations
-const sections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // Add 'visible' class when in view
+            } else {
+                entry.target.classList.remove('visible'); // Remove 'visible' class when out of view
+            }
+        });
+    }, { threshold: 0.35 }); // Threshold set to 35% visibility
 
-// Create an IntersectionObserver to detect when sections come into view
-const sectionObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // When a section is in view (threshold is met), add the 'visible' class to it
-            entry.target.classList.add('visible');
-        } else {
-            // When a section goes out of view, remove the 'visible' class
-            entry.target.classList.remove('visible');
-        }
+    sections.forEach(section => {
+        sectionObserver.observe(section); // Observe each section
     });
-}, { threshold: 0.35 }); // Set the threshold to a % (when  that % of the section is visible)
+}
 
-// Observe each section to trigger animations when they scroll into view
-sections.forEach(section => {
-    sectionObserver.observe(section);
+// DOMContentLoaded event to ensure the DOM is fully loaded before executing code
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Portfolio loaded successfully!"); // Log a message when the page is fully loaded
+
+    // Add event listener to the contact form to handle form submission
+    document.getElementById('contact-form').addEventListener('submit', handleFormSubmit);
+
+    // Initialize section observer for scroll-triggered animations
+    initSectionObserver();
 });
-
