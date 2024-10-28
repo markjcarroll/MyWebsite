@@ -1,3 +1,5 @@
+
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -8,6 +10,7 @@ body {
     background-color: #f7f7f7;
 }
 
+/* Main container for the game */
 #game-container {
     text-align: center;
     padding: 35px;
@@ -17,8 +20,11 @@ body {
     max-width: 650px;  /* Set a max width for the game container */
     width: 100%;
     margin: 15px auto;  /* Add some margin to center the container */
+    position: relative; /* Add relative positioning for better control */
+
 }
 
+/* Game Title styling */
 h1 {
     font-size: 2.0em;
     margin: 0;
@@ -31,6 +37,7 @@ h1 {
     overflow: hidden;  /* Prevent any cutting off */
 }
 
+/* Subtitle/Instructions styling */
 h2 {
     font-size: 1.1em;
     padding: 10px;
@@ -43,6 +50,16 @@ h2 {
     box-sizing: border-box;  /* Prevent content from overflowing */
 }
 
+/* Game board layout using grid */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 150px); /* Four columns of cards */
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px; /* Space around the board */
+}
+
+/* Card styling */
 .card {
     width: 150px;
     height: 150px;
@@ -53,23 +70,26 @@ h2 {
     transform: rotateY(0);
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
 }
 
+/* Hover effect for card */
 .card:hover {
     background-color: #92423b; /* Darker shade on hover */
     transition: transform 0.6s ease
 }
 
+/* Card flip effect */
 .card.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); /* Rotates card when flipped */
 }
 
+/* Front and back faces of each card */
 .front-face, .back-face {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Hide back face when flipped */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,6 +97,7 @@ h2 {
     border-radius: 10px;
 }
 
+/* Styling for front face of card */
 .front-face {
     background-color: #ecf0f1;
     color: #2c3e50;
@@ -84,6 +105,7 @@ h2 {
     visibility: hidden;  /* Hide the front face by default */
 }
 
+/* Styling for back face of card */
 .back-face {
     background-color: #af5b4c87;
 }
@@ -93,10 +115,12 @@ h2 {
     visibility: visible;  /* Show the front face when flipped */
 }
 
+/* Hide back face when flipped */
 .card.flipped .back-face {
     visibility: hidden;  /* Hide the back face when flipped */
 }
 
+/* Restart button styling */
 .restart-btn {
     background-color: #af5b4cd4;
     color: white;
@@ -109,47 +133,53 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
+/* Hover effect for restart button */
 .restart-btn:hover {
     background-color: #92423b; /* Darker shade on hover */
 }
 
-#game-container {
-    text-align: center;
-    padding: 35px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 650px;
-    width: 100%;
-    margin: 15px auto;
-    position: relative; /* Add relative positioning for better control */
-}
-
-
-.game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 150px);
-    grid-gap: 10px;
-    justify-content: center;
-    margin: 20px;
-}
-
-
+/* Game statistics container */
 #game-stats {
     background-color: #af5b4cd4;
     padding: 15px;
     border-radius: 10px;
     color: #ecf0f1;
     text-align: center;
-    width: 190px;  /* Ensure it's the same width as the game container */
-    margin-top: 10px;  /* Small space between game board and stats */
-    margin-bottom: 10px;  /* Small space between stats and restart button */
+    width: 190px;
     margin: 10px auto; /* Center the stats container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Individual stat items styling */
 #move-counter, #best-score, #last-games {
     margin: 5px 0;
     font-size: 1.2em;
 }
 
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    #game-container {
+        max-width: 100%;
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .game-board {
+        grid-template-columns: repeat(4, 70px); /* Smaller columns for mobile */
+        grid-gap: 5px; /* Smaller gap between cards */
+    }
+
+    .card {
+        width: 70px; /* Smaller card size for mobile */
+        height: 70px;
+    }
+
+    /* Optional: Adjust font sizes for smaller displays */
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #move-counter, #best-score, #last-games {
+        font-size: 1em;
+    }
+}
